@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.store.objects.Salesman" table="salesmen" catalog="public">
+        <id name="Id" type="java.lang.Integer">
+            <column name="sal_id" />
+            <generator class="identity" />
+        </id>
+        <property name="name" type="string">
+            <column name="name" />
+        </property>
+        <property name="surname" type="string">
+            <column name="surname" />
+        </property>
+        <property name="salary" type="java.math.BigDecimal">
+            <column name="salary" />
+        </property>
+        <property name="bonus" type="java.lang.Integer">
+            <column name="bonus" />
+        </property>
+        <set name="orders" table="orders">
+            <key>
+                <column name="salesman_id" not-null="true" />
+            </key>
+            <one-to-many class="com.store.objects.Order" />
+        </set>
+    </class>
+</hibernate-mapping>

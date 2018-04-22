@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.store.objects.Purchase" table="purchases" catalog="public">
+        <id name="Id" type="java.lang.Integer">
+            <column name="pur_id" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="product" class="com.store.objects.Product">
+            <column name="product_id" not-null="true" />
+        </many-to-one>
+        <property name="amount" type="java.lang.Double">
+            <column name="amount" length="32" not-null="true"/>
+        </property>
+        <many-to-one name="order" class="com.store.objects.Order">
+            <column name="order_id" not-null="true" />
+        </many-to-one>
+    </class>
+</hibernate-mapping>

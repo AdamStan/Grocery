@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.store.objects.Order" table="orders" catalog="public">
+        <id name="Id" type="java.lang.Integer">
+            <column name="order_id" />
+            <generator class="identity" />
+        </id>
+        <property name="dateOfOrder" type="java.util.Date">
+            <column name="date_of_order" />
+        </property>
+        <many-to-one name="salesman" class="com.store.objects.Salesman">
+            <column name="salesman_id" not-null="true" />
+        </many-to-one>
+        <set name="purchases" table="purchases">
+            <key>
+                <column name="order_id" not-null="true" />
+            </key>
+            <one-to-many class="com.store.objects.Purchase" />
+        </set>
+    </class>
+</hibernate-mapping>
