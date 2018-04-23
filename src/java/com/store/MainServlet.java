@@ -5,6 +5,7 @@
  */
 package com.store;
 
+import com.store.objects.*;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -31,9 +32,8 @@ public class MainServlet extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
+        /*response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
@@ -43,7 +43,7 @@ public class MainServlet extends HttpServlet {
             out.println("<h1>Servlet MainServlet at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
-        }
+        }*/
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -72,7 +72,16 @@ public class MainServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        String name = request.getParameter("name");
+        PrintWriter out = response.getWriter();
+        if(name != null){
+            //wyszukaj i wyslij do categoryshow.jsp
+            ConnectionToPostgres conn = new ConnectionToPostgres();
+            request.setAttribute("categories", conn.findCategoryByName(name));
+            request.getRequestDispatcher("/categoryshow.jsp").forward(request, response);
+        } else {
+                
+        }
     }
 
     /**

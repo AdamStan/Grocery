@@ -4,11 +4,11 @@ import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
 class HibernateUtil {
-    public static SessionFactory buildSessionFactory() {
+    public static SessionFactory buildSessionFactory(String pathToConfigFile) {
         try {
             // load from different directory
             SessionFactory sessionFactory = new Configuration().configure(
-                            "hibernate.cfg.xml")
+                            pathToConfigFile)
                             .buildSessionFactory();
             return sessionFactory;
 
