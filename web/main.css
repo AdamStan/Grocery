@@ -1,0 +1,26 @@
+@import url("bootstrap4/css/bootstrap.min.css");
+@import url("bootstrap4/css/bootstrap-theme.css");
+
+body{
+    padding-top: 2%;
+}
+.jumbotron{
+    color: black;
+    background-color: #6688AA;
+    height: 50%;
+    width: 50%;
+    margin: 0 auto;
+}
+#log{
+    position:absolute;
+    right: 5px;
+    top: 5px;
+}
+.row{
+    margin: auto;
+}
+
+.title {
+    color: #d39e00;
+    font-size: 20px ;
+}

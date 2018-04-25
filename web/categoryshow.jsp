@@ -13,7 +13,7 @@
         <h1>Results of searching</h1>
         <div>
             <p><% for(Category c: categories) {
-                c.toString();
+                out.println(c.getName() + " | " + c.getId() + " ; ");
             }
             %></p>
         </div>

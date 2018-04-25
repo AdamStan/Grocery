@@ -4,19 +4,19 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Find Category</title>
-        <link rel ="stylesheet" href="bootstrap4/css/bootstrap.css">
-        <!-- <style type="text/css">
-            include file="bootstrap4/css/bootstrap.css" %>
-        </style> -->
+        <link rel ="stylesheet" href="main.css">
     </head>
     <body>
-        <h2 class ="text-center">Wyszukiwarka</h2>
+        <h2 class ="text-center">Search Category</h2>
         <div class="container">
-        <form action="/com/store/MainServlet" method = "POST" class = "jumbotron">
+        <form action="/GroceryStore/CategoryController" method = "GET" class = "jumbotron">
             <div class="form-group">
-                <label> Name of category </label>
-                <input type="text" id="email" placeholder="Enter category name" name="cat_name"/>
-                <button type="submit" class="btn btn-default"> Search </button>
+                <div class = "text-center">
+                    <p> <label class="title"> Name of category </label>
+                        <input name="cat_name" type="text" id="text" placeholder="Enter category name" /> 
+                    </p>
+                    <p><input type="submit" class="btn btn-default"/> </p>
+                </div>
             </div>
         </form>
         </div>
