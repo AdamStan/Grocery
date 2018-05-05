@@ -60,12 +60,17 @@ public class CategoryController extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         String name = request.getParameter("cat_name");
+        String cat = request.getParameter("cat_insert_name");
         PrintWriter out = response.getWriter();
         if(name != null){
             //wyszukaj i wyslij do categoryshow.jsp
             ConnectionToPostgres conn = new ConnectionToPostgres();
             request.setAttribute("categories", conn.findCategoryByName(name));
             request.getRequestDispatcher("/categoryshow.jsp").forward(request,response);
+        } else if(cat != null){
+            ConnectionToPostgres conn = new ConnectionToPostgres();
+            conn.insertCategory(cat);
+            request.getRequestDispatcher("category/categoryinsert.jsp").forward(request,response);
         } else {
              out.println("Nie ma takiej kategorii " + name);
         }

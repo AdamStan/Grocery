@@ -19,6 +19,14 @@ public class ConnectionToPostgres {
         return factory;
     }
     
+    public void insertCategory(String name){
+        Session s = factory.openSession();
+        Transaction tx = s.beginTransaction();
+        Category c = new Category(name);
+        s.save(c);
+        tx.commit();
+    }
+    
     public ArrayList<Category> findCategoryByName(String name){
         ArrayList<Category> categories = new ArrayList<Category>();
         Session s = factory.openSession();
