@@ -5,6 +5,7 @@
  */
 package com.store.controllers;
 
+import com.store.ConnectionToPostgres;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -58,7 +59,10 @@ public class ProductServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        PrintWriter out = response.getWriter();
+        ConnectionToPostgres conn = new ConnectionToPostgres();
+        request.setAttribute("products", conn.getAll("Product"));
+        request.getRequestDispatcher("/product/productshow.jsp").forward(request,response);
     }
 
     /**
@@ -72,7 +76,7 @@ public class ProductServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        
     }
 
     /**

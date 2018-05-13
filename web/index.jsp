@@ -1,11 +1,6 @@
-<%-- 
-    Document   : index
-    Created on : 2018-05-13, 13:26:53
-    Author     : Asus1
---%>
-
 <%@page import="java.util.concurrent.TimeUnit"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@taglib prefix = "ex" uri = "/mainmenu.tld"%>
 <!doctype html>
 <html lang="en">
   <head>
@@ -15,7 +10,7 @@
     <link href="bootstrap4/css/bootstrap-grid.min.css" rel="stylesheet" type="text/css"/>
     <title>MainPage</title>
   </head>
-<body>
+
     <nav class="navbar navbar-expand-md navbar-dark bg-dark mb-4">
       <a href="index.html" class="navbar-brand"> GroceryStore </a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
@@ -30,7 +25,7 @@
             <a class="nav-link" href="/GroceryStore/Order"> Orders </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#"> Products </a>
+            <a class="nav-link" href="/GroceryStore/Product"> Products </a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#"> Purchases </a>
@@ -70,5 +65,7 @@
         </div>
       </div>
     </nav>
+    <p><ex:mainmenu/></p>
+    asdadsadadsaassadsadds
 </body>
 </html>

@@ -1,0 +1,12 @@
+<taglib>
+    <tlib-version>1.0</tlib-version>
+    <jsp-version>2.0</jsp-version>
+    <short-name>menu</short-name>
+   
+    <tag>
+        <name>mainmenu</name>
+        <tag-class>com.store.MainMenu</tag-class>
+        <body-content>empty</body-content>
+    </tag>
+</taglib>
+

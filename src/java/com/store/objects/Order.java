@@ -43,5 +43,11 @@ public class Order {
     }
     public void setPurchases(Set<Purchase> purchases) {
         this.purchases = purchases;
-    } 
+    }
+
+    @Override
+    public String toString() {
+        return "Order{" + "dateOfOrder=" + dateOfOrder + ", salesman=" + salesman + '}';
+    }
+    
 }
