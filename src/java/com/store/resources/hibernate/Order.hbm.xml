@@ -10,7 +10,7 @@
         <property name="dateOfOrder" type="java.util.Date">
             <column name="date_of_order" />
         </property>
-        <many-to-one name="salesman" class="com.store.objects.Salesman">
+        <many-to-one name="salesman" lazy="false" class="com.store.objects.Salesman">
             <column name="salesman_id" not-null="true" />
         </many-to-one>
         <set name="purchases" table="purchases">

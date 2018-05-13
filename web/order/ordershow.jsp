@@ -1,13 +1,12 @@
-<%@page import="com.store.objects.Category"%>
+<%@page import="com.store.objects.Order"%>
 <%@page import="java.util.ArrayList"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel="stylesheet" href="bootstrap4/css/bootstrap.min.css">
-        <title>Show categries</title>
+        <title>Show orders</title>
     </head>
     <body>
         <nav class="navbar navbar-expand-md navbar-dark bg-dark mb-4">
@@ -47,26 +46,28 @@
               </div>
             </div>
           </nav>
-        <% ArrayList<Category> categories = (ArrayList) request.getAttribute("categories"); %> 
-        <h1 class="text-center">Categories</h1>
+        <% ArrayList<Order> orders = (ArrayList<Order>) request.getAttribute("orders"); %> 
+        <h1 class="text-center">Orders</h1>
         <div class="container table-responsive">
             <table class="table">
                 <thead>
                     <tr>
                         <th> ID </th>
-                        <th> category name </th>
+                        <th> Data </th>
+                        <th> Salesman </th>
                         <th> delete </th>
                     </tr>
                 </thead>
-                <% for(Category c: categories) {
-                    out.println("<tr><td>" + c.getId() + "</td><td>" 
-                            + c.getName() + "</td><td>" 
-                            + "<input type='checkbox' name='" + c.toString() + "'></td></tr>");
+                <% for(Order o: orders) {
+                    out.println("<tr><td>" + o.getId() + "</td><td>" 
+                            + o.getDateOfOrder()+ "</td><td>" 
+                            + o.getSalesman().toString() + "</td><td>" 
+                            + "<input type='checkbox' name='" + o.toString() + "'></td></tr>");
                 }
                 %>
             </table>
             <div class="container">
-                <a href="index.html" class="btn btn-info" >Powrot</a>
+                <a href="index.jsp" class="btn btn-info" >Powrot</a>
                 <a href="#" class="btn btn-warning"> Usun zaznaczone </a>
                 <a href="#" class="btn btn-success"> Dodaj </a>
             </div>

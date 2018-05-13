@@ -4,6 +4,7 @@
     Author     : Asus1
 --%>
 
+<%@page import="java.util.concurrent.TimeUnit"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!doctype html>
 <html lang="en">
@@ -26,7 +27,7 @@
             <a class="nav-link" href="/GroceryStore/CategoryController"> Categories </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#"> Orders </a>
+            <a class="nav-link" href="/GroceryStore/Order"> Orders </a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#"> Products </a>
@@ -44,13 +45,12 @@
           <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
           -->
           <% 
-            
+              TimeUnit.SECONDS.sleep(1);
               Cookie[] u1 = request.getCookies();//musi byc z cookies
               if(u1 != null) { %>
                 <button class="nav-item btn btn-secondary">
                     <%
                         out.println(u1[1].getValue());
-                    
                     %>
                 </button>
                 <button class="nav-item btn btn-secondary">

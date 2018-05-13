@@ -13,7 +13,7 @@
         <property name="price" type="java.math.BigDecimal">
             <column name="price" />
         </property>
-        <many-to-one name="category" class="com.store.objects.Category">
+        <many-to-one name="category" lazy="false" class="com.store.objects.Category">
             <column name="category_id" not-null="true" />
         </many-to-one>
         <set name="purchases" table="purchases">

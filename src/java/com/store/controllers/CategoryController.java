@@ -77,7 +77,7 @@ public class CategoryController extends HttpServlet {
         PrintWriter out = response.getWriter();
         ConnectionToPostgres conn = new ConnectionToPostgres();
         request.setAttribute("categories", conn.findCategoryByName("ALL"));
-        request.getRequestDispatcher("/categoryshow.jsp").forward(request,response);
+        request.getRequestDispatcher("/category/categoryshow.jsp").forward(request,response);
     }
 
     /**
@@ -91,10 +91,7 @@ public class CategoryController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        PrintWriter out = response.getWriter();
-        ConnectionToPostgres conn = new ConnectionToPostgres();
-        request.setAttribute("categories", conn.findCategoryByName("ALL"));
-        request.getRequestDispatcher("/categoryshow.jsp").forward(request,response);
+        
     }
 
     /**

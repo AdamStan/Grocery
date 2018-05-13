@@ -26,7 +26,26 @@ public class ConnectionToPostgres {
         s.save(c);
         tx.commit();
     }
-    
+    public ArrayList getAll(String objectName){
+        ArrayList objects = new ArrayList();
+        
+        Session s = factory.openSession();
+        List obj;
+        Transaction tx = s.beginTransaction();
+        
+        String command = "From " + objectName;
+        Query query = s.createQuery(command);
+        obj = query.list();   
+
+        tx.commit();
+        s.close();
+        
+        for(Object ob : (ArrayList) obj){
+            objects.add(ob);
+        }
+        
+        return objects;
+    }
     public ArrayList<Category> findCategoryByName(String name){
         ArrayList<Category> categories = new ArrayList<Category>();
         Session s = factory.openSession();

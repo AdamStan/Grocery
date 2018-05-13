@@ -7,13 +7,13 @@
             <column name="pur_id" />
             <generator class="identity" />
         </id>
-        <many-to-one name="product" class="com.store.objects.Product">
+        <many-to-one name="product" lazy="false" class="com.store.objects.Product">
             <column name="product_id" not-null="true" />
         </many-to-one>
         <property name="amount" type="java.lang.Double">
             <column name="amount" length="32" not-null="true"/>
         </property>
-        <many-to-one name="order" class="com.store.objects.Order">
+        <many-to-one name="order" lazy="false" class="com.store.objects.Order">
             <column name="order_id" not-null="true" />
         </many-to-one>
     </class>

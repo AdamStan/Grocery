@@ -74,4 +74,10 @@ public class Salesman {
     public void setUsername(String username) {
         this.username = username;
     }
+
+    @Override
+    public String toString() {
+        return "Id=" + Id + ", name=" + name + ", surname=" + surname;
+    }
+    
 }
