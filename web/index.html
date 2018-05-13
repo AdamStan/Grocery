@@ -1,78 +1,53 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-    <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="bootstrap4/css/bootstrap.min.css">
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-    <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+    <link href="bootstrap4/css/bootstrap-grid.min.css" rel="stylesheet" type="text/css"/>
     <title>MainPage</title>
   </head>
 <body>
-    <nav class="navbar navbar-fixed-top navbar-default">
-    <div class="navbar-header">
-        <a href="index.html" class="navbar-brand"> GroceryStore </a>
-    </div>
-    <div class="container pnavbar-default" id="navbarSupportedContent">
-        <div class="row">
-        <ul class="nav-item dropdown">
-        <button class="nav-link btn btn-secondary dropdown-toggle" type="button" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Categories
-        </button>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="/GroceryStore/categoryform.jsp">Add</a>
-                <a class="dropdown-item" href="/GroceryStore/categorysearch.jsp">Find</a>
-                <a class="dropdown-item" href="#">Delete</a>
-            </div>
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark mb-4">
+      <a href="index.html" class="navbar-brand"> GroceryStore </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarCollapse">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="/GroceryStore/CategoryController"> Categories </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#"> Orders </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#"> Products </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#"> Purchases </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#"> Salesmen </a>
+          </li>
         </ul>
-        <ul class="nav-item dropdown">
-            <button class="btn btn-secondary dropdown-toggle" type="button" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Orders
-            </button>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="#">Add</a>
-                <a class="dropdown-item" href="#">Find</a>
-                <a class="dropdown-item" href="#">Delete</a>
-            </div>
-        </ul>
-        <ul class="nav-item dropdown">
-            <button class="btn btn-secondary dropdown-toggle" type="button" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Products
-            </button>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="#">Add</a>
-                <a class="dropdown-item" href="#">Find</a>
-                <a class="dropdown-item" href="#">Delete</a>
-            </div>
-        </ul>
-        <ul class="nav-item dropdown">
-            <button class="btn btn-secondary dropdown-toggle" type="button" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Purchases
-            </button>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="#">Add</a>
-                <a class="dropdown-item" href="#">Find</a>
-                <a class="dropdown-item" href="#">Delete</a>
-            </div>
-        </ul>
-        <ul class="nav-item dropdown">
-            <button class="btn btn-secondary dropdown-toggle" type="button" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Salesmen
-            </button>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="#">Add</a>
-                <a class="dropdown-item" href="#">Find</a>
-                <a class="dropdown-item" href="#">Delete</a>
-            </div>
-        </ul>
+        <div class="form-inline mt-2 mt-md-0">
+          <!--
+          <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+          -->
+          <button class="nav-item btn btn-secondary" onclick="location.href='login.jsp';">
+            Login
+          </button>
+          <button class="nav-item btn btn-secondary">
+            Rejestracja
+          </button>
         </div>
-    </div>
+      </div>
     </nav>
     <h1 class = "text-center">Grocery Store</h1>
+    <h2 class = "text-center">Grocery Store</h2>
+    <h3 class = "text-center">Grocery Store</h3>
     <div class = "text-center">
         <p class="text-primary"> Jakis dziwny tekst z bootstrapawomy cssami </p>
         <p class="text-primary"> Jakis dziwny tekst z bootstrapawomy cssami </p>

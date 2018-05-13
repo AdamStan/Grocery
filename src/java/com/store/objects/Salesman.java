@@ -10,6 +10,8 @@ public class Salesman {
     private String surname;
     private BigDecimal salary;
     private Integer bonus;
+    private String password;
+    private String username;
     private Set<Order> orders = new HashSet<Order>();
 
     public Salesman() {
@@ -59,5 +61,17 @@ public class Salesman {
     }
     public void setOrders(Set<Order> orders) {
         this.orders = orders;
+    }
+    public String getPassword() {
+        return password;
+    }
+    public String getUsername() {
+        return username;
+    }
+    public void setPassword(String password) {
+        this.password = password;
+    }
+    public void setUsername(String username) {
+        this.username = username;
     }
 }

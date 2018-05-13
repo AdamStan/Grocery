@@ -5,11 +5,11 @@
  */
 package com.store.controllers;
 
-import com.store.ConnectionToPostgres;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -18,8 +18,8 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Asus1
  */
-@WebServlet(name = "CategoryController", urlPatterns = {"/CategoryController"})
-public class CategoryController extends HttpServlet {
+@WebServlet(name = "LoginController", urlPatterns = {"/Login"})
+public class LoginController extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -38,10 +38,10 @@ public class CategoryController extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet CategoryController</title>");            
+            out.println("<title>Servlet LoginController</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet CategoryController at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet LoginController at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
@@ -59,25 +59,11 @@ public class CategoryController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        /*String name = request.getParameter("cat_name");
-        String cat = request.getParameter("cat_insert_name");
-        PrintWriter out = response.getWriter();
-        if(name != null){
-            //wyszukaj i wyslij do categoryshow.jsp
-            ConnectionToPostgres conn = new ConnectionToPostgres();
-            request.setAttribute("categories", conn.findCategoryByName(name));
-            request.getRequestDispatcher("/categoryshow.jsp").forward(request,response);
-        } else if(cat != null){
-            ConnectionToPostgres conn = new ConnectionToPostgres();
-            conn.insertCategory(cat);
-            request.getRequestDispatcher("category/categoryinsert.jsp").forward(request,response);
-        } else {
-             out.println("Nie ma takiej kategorii " + name);
-        }*/
-        PrintWriter out = response.getWriter();
-        ConnectionToPostgres conn = new ConnectionToPostgres();
-        request.setAttribute("categories", conn.findCategoryByName("ALL"));
-        request.getRequestDispatcher("/categoryshow.jsp").forward(request,response);
+        String name = request.getParameter("username");
+        Cookie cookie = new Cookie("username", name);
+        cookie.setMaxAge(Integer.MAX_VALUE);
+        response.addCookie(cookie);
+        request.getRequestDispatcher("/index.jsp").forward(request,response);
     }
 
     /**
@@ -91,10 +77,7 @@ public class CategoryController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        PrintWriter out = response.getWriter();
-        ConnectionToPostgres conn = new ConnectionToPostgres();
-        request.setAttribute("categories", conn.findCategoryByName("ALL"));
-        request.getRequestDispatcher("/categoryshow.jsp").forward(request,response);
+        
     }
 
     /**

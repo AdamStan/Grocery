@@ -16,6 +16,9 @@ body{
     right: 5px;
     top: 5px;
 }
+.color-background{
+    color: #007bff;
+}
 .row{
     margin: auto;
 }

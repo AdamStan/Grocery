@@ -1,13 +1,11 @@
-<%@page import="com.store.objects.Category"%>
-<%@page import="java.util.ArrayList"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel="stylesheet" href="bootstrap4/css/bootstrap.min.css">
-        <title>Show categries</title>
+        <link href="bootstrap4/css/bootstrap-grid.min.css" rel="stylesheet" type="text/css"/>
+        <title>Login Page</title>
     </head>
     <body>
         <nav class="navbar navbar-expand-md navbar-dark bg-dark mb-4">
@@ -38,7 +36,7 @@
                 <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
                 <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
                 -->
-                <button class="nav-item btn btn-secondary">
+                <button class="nav-item btn btn-secondary" onclick="location.href='login.jsp';">
                   Login
                 </button>
                 <button class="nav-item btn btn-secondary">
@@ -46,30 +44,13 @@
                 </button>
               </div>
             </div>
-          </nav>
-        <% ArrayList<Category> categories = (ArrayList) request.getAttribute("categories"); %> 
-        <h1 class="text-center">Categories</h1>
-        <div class="container table-responsive">
-            <table class="table">
-                <thead>
-                    <tr>
-                        <th> ID </th>
-                        <th> category name </th>
-                        <th> delete </th>
-                    </tr>
-                </thead>
-                <% for(Category c: categories) {
-                    out.println("<tr><td>" + c.getId() + "</td><td>" 
-                            + c.getName() + "</td><td>" 
-                            + "<input type='checkbox' name='" + c.toString() + "'></td></tr>");
-                }
-                %>
-            </table>
-            <div class="container">
-                <a href="index.html" class="btn btn-info" >Powrot</a>
-                <a href="#" class="btn btn-warning"> Usun zaznaczone </a>
-                <a href="#" class="btn btn-success"> Dodaj </a>
-            </div>
-        </div>
+        </nav>
+        <form class="container text-center" action="\GroceryStore\Login" method="GET">
+            <p> Username 
+            <input type="text" name="username" /></p>
+            <p> Password
+            <input type="password" name="password" /></p>
+            <p> <input type="submit"/></p>
+        </form>
     </body>
 </html>

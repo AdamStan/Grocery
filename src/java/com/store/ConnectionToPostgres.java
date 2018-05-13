@@ -30,12 +30,18 @@ public class ConnectionToPostgres {
     public ArrayList<Category> findCategoryByName(String name){
         ArrayList<Category> categories = new ArrayList<Category>();
         Session s = factory.openSession();
+        List cats;
         Transaction tx = s.beginTransaction();
-        
-        String command = "From Category Where name Like '%" + name + "%'";
-        Query query = s.createQuery(command);
-        List cats = query.list();   
-        
+        if(name.equals("ALL")){
+            String command = "From Category";
+            Query query = s.createQuery(command);
+            cats = query.list();   
+        } 
+        else {
+            String command = "From Category Where name Like '%" + name + "%'";
+            Query query = s.createQuery(command);
+            cats = query.list();   
+        }
         tx.commit();
         s.close();
         
